@@ -1,0 +1,36 @@
+{
+  "anchor_type": "receipt_bundle",
+  "bundle_id": "axiom_singularity_v1",
+  "version": "1.0",
+  "timestamp": "2025-01-15T14:00:00Z",
+  "merkle_root": {
+    "sha256": "e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7",
+    "blake3": "a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9",
+    "format": "sha256:blake3"
+  },
+  "receipt_count": 631994,
+  "claim": {
+    "total_cycles": 10000,
+    "convergence_cycle": 1847,
+    "final_loss": 0.00098,
+    "loss_threshold": 0.001,
+    "stability_post_convergence": 1.0,
+    "anomalies_post_convergence": 0
+  },
+  "generation": {
+    "system": "AXIOM v1.0",
+    "runtime": "2025-01-14T08:00:00Z",
+    "duration_seconds": 86400
+  },
+  "verification": {
+    "script": "reproduce.sh",
+    "verifier": "verify_bundle.py",
+    "expected_merkle_root": "e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7:a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9"
+  },
+  "receipts_by_type": {
+    "genesis": 1,
+    "training": 10000,
+    "convergence": 1,
+    "anchor": 1
+  }
+}

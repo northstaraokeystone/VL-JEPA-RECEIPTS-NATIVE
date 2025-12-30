@@ -1,0 +1,7 @@
+# Receipts-Native Starter Kit Dependencies
+
+# Required
+pytest>=7.0.0
+
+# Optional but recommended
+blake3>=0.3.0
