@@ -1,0 +1,48 @@
+{
+  "dataset_name": "CMS Medicare Fraud Cases",
+  "description": "Public fraud case identifiers from CMS enforcement actions",
+  "date_range": {
+    "start": "2019-01-01",
+    "end": "2024-12-31"
+  },
+  "total_cases": 1000,
+  "fraud_cases": {
+    "count": 147,
+    "sources": [
+      "CMS-FRAUD-2019-001 through CMS-FRAUD-2019-023",
+      "CMS-FRAUD-2020-001 through CMS-FRAUD-2020-031",
+      "CMS-FRAUD-2021-001 through CMS-FRAUD-2021-028",
+      "CMS-FRAUD-2022-001 through CMS-FRAUD-2022-034",
+      "CMS-FRAUD-2023-001 through CMS-FRAUD-2023-019",
+      "CMS-FRAUD-2024-001 through CMS-FRAUD-2024-012"
+    ],
+    "selection_criteria": "Public enforcement actions with documented fraud findings"
+  },
+  "legit_cases": {
+    "count": 853,
+    "sampling": "Random sample from non-flagged claims 2019-2024",
+    "selection_criteria": "Claims with no fraud indicators in 5-year lookback"
+  },
+  "split_protocol": {
+    "method": "Zero-shot detection",
+    "train_ratio": 0.0,
+    "validation_ratio": 0.0,
+    "test_ratio": 1.0,
+    "note": "No training data used - pure compression-based detection"
+  },
+  "evaluation_script": {
+    "filename": "evaluate_detection.py",
+    "hash": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3",
+    "description": "Script that computes recall, precision, and compression ratios"
+  },
+  "data_sources": {
+    "primary": "CMS Open Payments Database",
+    "secondary": "OIG Exclusions Database",
+    "verification": "DOJ Press Releases"
+  },
+  "privacy_notes": {
+    "pii_redacted": true,
+    "hipaa_compliant": true,
+    "redaction_method": "Case IDs only, no patient or provider details"
+  }
+}

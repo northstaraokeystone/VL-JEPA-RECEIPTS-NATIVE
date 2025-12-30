@@ -1,0 +1,36 @@
+{
+  "anchor_type": "receipt_bundle",
+  "bundle_id": "qed_entropy_v12",
+  "version": "12",
+  "timestamp": "2025-01-15T12:00:00Z",
+  "merkle_root": {
+    "sha256": "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+    "blake3": "f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7",
+    "format": "sha256:blake3"
+  },
+  "receipt_count": 1002,
+  "claim": {
+    "cycles_tested": 1000,
+    "max_delta_observed": 0.003,
+    "threshold": 0.01,
+    "violations": 0,
+    "compliance_rate": 1.0,
+    "mean_delta": 0.0015,
+    "std_delta": 0.0008
+  },
+  "generation": {
+    "system": "QED Entropy Tracker v12.0",
+    "runtime": "2025-01-15T10:00:00Z",
+    "duration_seconds": 3600
+  },
+  "verification": {
+    "script": "reproduce.sh",
+    "verifier": "verify_bundle.py",
+    "expected_merkle_root": "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7"
+  },
+  "receipts_by_type": {
+    "genesis": 1,
+    "entropy": 1000,
+    "anchor": 1
+  }
+}

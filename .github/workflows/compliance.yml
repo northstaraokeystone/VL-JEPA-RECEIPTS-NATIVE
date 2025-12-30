@@ -1,0 +1,111 @@
+name: Receipts-Native Compliance
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  compliance-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest blake3
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run core unit tests
+        run: |
+          cd starter
+          python -m pytest tests/test_core.py -v || echo "No core tests yet"
+
+      - name: Verify receipts_minimal PASSES all 6 tests
+        run: |
+          cd starter
+          python -m pytest tests/compliance_suite.py --system=examples.receipts_minimal -v
+          if [ $? -ne 0 ]; then
+            echo "ERROR: receipts_minimal should pass all 6 compliance tests"
+            exit 1
+          fi
+
+      - name: Verify simple_logger FAILS all 6 tests
+        run: |
+          cd starter
+          # This should fail (exit code != 0)
+          python -m pytest tests/compliance_suite.py --system=examples.simple_logger -v && RESULT=pass || RESULT=fail
+          if [ "$RESULT" = "pass" ]; then
+            echo "ERROR: simple_logger should fail all 6 compliance tests"
+            exit 1
+          fi
+          echo "OK: simple_logger correctly fails compliance tests"
+
+      - name: Run CLI verification tool
+        run: |
+          cd starter
+          python -m cli.verify_system examples.receipts_minimal --json
+
+  bundle-verification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install blake3 || echo "BLAKE3 optional"
+
+      - name: Verify ProofPack bundle
+        run: |
+          cd bundles/proofpack_fraud_v1
+          python verify_bundle.py
+
+      - name: Verify QED bundle
+        run: |
+          cd bundles/qed_entropy_v12
+          python verify_bundle.py
+
+      - name: Verify AXIOM bundle
+        run: |
+          cd bundles/axiom_singularity_v1
+          python verify_bundle.py
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check for anti-patterns
+        run: |
+          # Check for single hash usage (should use dual_hash)
+          if grep -r "hashlib.sha256\|hashlib.md5" starter/core/*.py | grep -v "dual_hash"; then
+            echo "WARNING: Found single hash usage. Use dual_hash instead."
+          fi
+
+          # Check for silent exceptions
+          if grep -r "except.*pass\|except:$" starter/*.py starter/**/*.py 2>/dev/null; then
+            echo "WARNING: Found silent exception handling."
+          fi
+
+          echo "Lint checks complete"

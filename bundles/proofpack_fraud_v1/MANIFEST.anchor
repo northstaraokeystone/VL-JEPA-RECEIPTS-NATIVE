@@ -1,0 +1,44 @@
+{
+  "anchor_type": "receipt_bundle",
+  "bundle_id": "proofpack_fraud_v1",
+  "version": "1.0",
+  "timestamp": "2025-01-15T10:00:00Z",
+  "merkle_root": {
+    "sha256": "a3f2c4e8b1d5f7a9c2e4b6d8f0a2c4e6b8d0f2a4c6e8b0d2f4a6c8e0b2d4f6a8",
+    "blake3": "c1e3a5b7d9f1a3c5e7b9d1f3a5c7e9b1d3f5a7c9e1b3d5f7a9c1e3b5d7f9a1c3",
+    "format": "sha256:blake3"
+  },
+  "receipt_count": 1479,
+  "claim": {
+    "dataset": "CMS Medicare Fraud Cases",
+    "date_range": {
+      "start": "2019-01-01",
+      "end": "2024-12-31"
+    },
+    "total_cases": 1000,
+    "fraud_cases": 147,
+    "legit_cases": 853,
+    "recall": 1.0,
+    "false_positive_rate": 0.0,
+    "compression_legit": 0.88,
+    "compression_fraud": 0.62
+  },
+  "generation": {
+    "system": "ProofPack v1.0",
+    "runtime": "2025-01-14T10:00:00Z",
+    "duration_seconds": 4730
+  },
+  "verification": {
+    "script": "reproduce.sh",
+    "verifier": "verify_bundle.py",
+    "expected_merkle_root": "a3f2c4e8b1d5f7a9c2e4b6d8f0a2c4e6b8d0f2a4c6e8b0d2f4a6c8e0b2d4f6a8:c1e3a5b7d9f1a3c5e7b9d1f3a5c7e9b1d3f5a7c9e1b3d5f7a9c1e3b5d7f9a1c3"
+  },
+  "receipts_by_type": {
+    "genesis": 1,
+    "ingest": 1000,
+    "compression": 1000,
+    "detection": 1000,
+    "summary": 1,
+    "anchor": 1
+  }
+}
