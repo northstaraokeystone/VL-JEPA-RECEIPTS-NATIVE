@@ -1,0 +1,67 @@
+{
+  "escape_velocities": {
+    "x_authenticity": {
+      "v_esc": 0.95,
+      "description": "95% deepfake detection required",
+      "graduation_criteria": {
+        "min_effectiveness": 0.95,
+        "min_autonomy": 0.75,
+        "min_receipts": 1000
+      }
+    },
+    "tesla_fsd": {
+      "v_esc": 0.98,
+      "description": "98% safety required (higher bar)",
+      "graduation_criteria": {
+        "min_effectiveness": 0.98,
+        "min_autonomy": 0.80,
+        "min_receipts": 10000
+      }
+    },
+    "grok_verifiable": {
+      "v_esc": 0.90,
+      "description": "90% confidence calibration",
+      "graduation_criteria": {
+        "min_effectiveness": 0.90,
+        "min_autonomy": 0.70,
+        "min_receipts": 5000
+      }
+    },
+    "spacex_mars": {
+      "v_esc": 0.95,
+      "description": "95% proof generation success",
+      "graduation_criteria": {
+        "min_effectiveness": 0.95,
+        "min_autonomy": 0.85,
+        "min_receipts": 500
+      }
+    },
+    "starlink_edge": {
+      "v_esc": 0.85,
+      "description": "85% bandwidth savings",
+      "graduation_criteria": {
+        "min_effectiveness": 0.85,
+        "min_autonomy": 0.70,
+        "min_receipts": 2000
+      }
+    },
+    "neuralink_bci": {
+      "v_esc": 0.90,
+      "description": "90% BCI compression fidelity",
+      "graduation_criteria": {
+        "min_effectiveness": 0.90,
+        "min_autonomy": 0.60,
+        "min_receipts": 1000
+      }
+    }
+  },
+  "default": {
+    "v_esc": 0.90,
+    "description": "Default escape velocity",
+    "graduation_criteria": {
+      "min_effectiveness": 0.90,
+      "min_autonomy": 0.75,
+      "min_receipts": 1000
+    }
+  }
+}
