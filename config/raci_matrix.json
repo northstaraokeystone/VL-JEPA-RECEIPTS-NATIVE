@@ -1,0 +1,124 @@
+{
+  "x_twitter": {
+    "deepfake_detection": {
+      "responsible": "detection_algorithm",
+      "accountable": "x_safety_team",
+      "consulted": ["content_creator"],
+      "informed": ["regulators", "users"],
+      "escalation_path": ["x_legal", "x_trust_safety_vp", "x_ceo"]
+    },
+    "content_flag": {
+      "responsible": "detection_algorithm",
+      "accountable": "human_moderator",
+      "consulted": ["x_legal"],
+      "informed": ["advertisers"],
+      "escalation_path": ["x_trust_safety", "x_legal"]
+    },
+    "authenticity_badge": {
+      "responsible": "verification_system",
+      "accountable": "x_trust_team",
+      "consulted": ["enterprise_customer"],
+      "informed": ["public"],
+      "escalation_path": ["x_product", "x_legal"]
+    },
+    "default": {
+      "responsible": "x_platform_system",
+      "accountable": "x_ops_team",
+      "consulted": [],
+      "informed": ["audit_log"],
+      "escalation_path": ["x_ops_lead", "x_platform_safety"]
+    }
+  },
+  "tesla_fsd": {
+    "frame_verification": {
+      "responsible": "fsd_vision_stack",
+      "accountable": "safety_driver",
+      "consulted": [],
+      "informed": ["tesla_fleet_ops"],
+      "escalation_path": ["tesla_safety_eng", "nhtsa"]
+    },
+    "entropy_gate_trigger": {
+      "responsible": "selective_decode_module",
+      "accountable": "fsd_planner",
+      "consulted": ["safety_driver"],
+      "informed": ["vehicle_logs", "tesla_safety_dashboard"],
+      "escalation_path": ["fsd_planner", "tesla_safety_eng"]
+    },
+    "incident_reconstruction": {
+      "responsible": "incident_analyzer",
+      "accountable": "tesla_safety_eng",
+      "consulted": ["nhtsa"],
+      "informed": ["insurers", "legal"],
+      "escalation_path": ["tesla_legal", "nhtsa"]
+    },
+    "default": {
+      "responsible": "fsd_system",
+      "accountable": "tesla_fsd_team",
+      "consulted": [],
+      "informed": ["vehicle_logs"],
+      "escalation_path": ["tesla_safety_eng", "tesla_legal"]
+    }
+  },
+  "xai_grok": {
+    "multimodal_prediction": {
+      "responsible": "grok_predictor",
+      "accountable": "x_ai_eng",
+      "consulted": ["enterprise_customer"],
+      "informed": ["regulators"],
+      "escalation_path": ["xai_safety", "xai_leadership"]
+    },
+    "confidence_low": {
+      "responsible": "confidence_scorer",
+      "accountable": "grok_safety_team",
+      "consulted": ["customer_support"],
+      "informed": ["product_team"],
+      "escalation_path": ["xai_safety", "xai_product"]
+    },
+    "hallucination_detected": {
+      "responsible": "adversarial_detector",
+      "accountable": "x_ai_safety",
+      "consulted": ["customer"],
+      "informed": ["compliance"],
+      "escalation_path": ["xai_safety", "xai_legal"]
+    },
+    "default": {
+      "responsible": "grok_system",
+      "accountable": "xai_eng_team",
+      "consulted": [],
+      "informed": ["audit_log"],
+      "escalation_path": ["xai_safety", "xai_leadership"]
+    }
+  },
+  "spacex_mars": {
+    "autonomy_proof": {
+      "responsible": "autonomy_verifier",
+      "accountable": "mission_control",
+      "consulted": ["nasa_oversight"],
+      "informed": ["spacex_leadership"],
+      "escalation_path": ["mission_director", "spacex_ceo"]
+    },
+    "delayed_verification": {
+      "responsible": "merkle_verifier",
+      "accountable": "mission_control",
+      "consulted": [],
+      "informed": ["nasa", "spacex_eng"],
+      "escalation_path": ["mission_director"]
+    },
+    "default": {
+      "responsible": "mars_autonomy_system",
+      "accountable": "mission_control",
+      "consulted": [],
+      "informed": ["spacex_eng"],
+      "escalation_path": ["mission_director", "spacex_leadership"]
+    }
+  },
+  "default": {
+    "default": {
+      "responsible": "system",
+      "accountable": "platform_team",
+      "consulted": [],
+      "informed": ["audit_log"],
+      "escalation_path": ["platform_lead", "safety_team"]
+    }
+  }
+}

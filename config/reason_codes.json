@@ -1,0 +1,70 @@
+{
+  "reason_codes": {
+    "RC001": {
+      "name": "COMPRESSION_FAILURE",
+      "severity": "HIGH",
+      "description": "Deepfake/synthetic compressed unexpectedly well",
+      "auto_tune": "compression_threshold",
+      "suggested_adjustment": -0.02
+    },
+    "RC002": {
+      "name": "TEMPORAL_INCONSISTENCY",
+      "severity": "HIGH",
+      "description": "Video frames showed semantic jitter missed by Merkle tree",
+      "auto_tune": "temporal_consistency_threshold",
+      "suggested_adjustment": -0.1
+    },
+    "RC003": {
+      "name": "ADVERSARIAL_NOVEL",
+      "severity": "CRITICAL",
+      "description": "New adversarial attack not caught by compression asymmetry",
+      "auto_tune": "adversarial_detection_threshold",
+      "suggested_adjustment": -0.02,
+      "requires_escalation": true
+    },
+    "RC004": {
+      "name": "CROSS_MODAL_MISMATCH",
+      "severity": "MEDIUM",
+      "description": "Image and text semantically misaligned but coherence score high",
+      "auto_tune": "coherence_threshold",
+      "suggested_adjustment": 0.02
+    },
+    "RC005": {
+      "name": "CONFIDENCE_OVERCONFIDENT",
+      "severity": "MEDIUM",
+      "description": "High confidence but wrong prediction (calibration issue)",
+      "auto_tune": "confidence_calibration",
+      "suggested_adjustment": 0.1
+    },
+    "RC006": {
+      "name": "MERKLE_CHAIN_BREAK",
+      "severity": "CRITICAL",
+      "description": "Temporal Merkle tree missed frame manipulation",
+      "auto_tune": "merkle_tree_depth",
+      "suggested_adjustment": 2,
+      "requires_escalation": true
+    }
+  },
+  "severity_levels": {
+    "CRITICAL": {
+      "auto_tune_allowed": false,
+      "requires_human_approval": true,
+      "escalation_required": true
+    },
+    "HIGH": {
+      "auto_tune_allowed": true,
+      "requires_human_approval": false,
+      "escalation_required": false
+    },
+    "MEDIUM": {
+      "auto_tune_allowed": true,
+      "requires_human_approval": false,
+      "escalation_required": false
+    },
+    "LOW": {
+      "auto_tune_allowed": true,
+      "requires_human_approval": false,
+      "escalation_required": false
+    }
+  }
+}
