@@ -1,10 +1,10 @@
 {
-  "compression_threshold": 0.85,
+  "compression_threshold": 0.83,
   "confidence_threshold": 0.85,
   "temporal_consistency_threshold": 2.0,
-  "adversarial_detection_threshold": 0.30,
-  "coherence_threshold": 0.80,
+  "adversarial_detection_threshold": 0.3,
+  "coherence_threshold": 0.8,
   "merkle_tree_depth": 8,
   "entropy_threshold": 5.0,
-  "synthetic_threshold": 0.30
+  "synthetic_threshold": 0.3
 }
